@@ -8,7 +8,7 @@ client.commands = new Discord.Collection();
 client.mongoose = require('./utils/mongoose');
 const Guild = require('./models/guild');
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync(`./commands/`).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
 	console.log('Astronaut Online!');
-	client.user.setActivity(client.guilds.cache.size + config.status, { type: config.activitytype });
+	client.user.setActivity(client.guilds.cache.size + config.status, { type: config.activityType });
 });
 
 //Event Handler
