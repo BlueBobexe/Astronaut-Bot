@@ -5,6 +5,8 @@ module.exports = {
 	description: 'Get the bots commands',
 	execute(message, args) {
         
+        const config = require('../config.json');
+
         //Main help
         if(!args[0])
         {
@@ -13,6 +15,7 @@ module.exports = {
             .setTitle('Astronaut Help')
             .setDescription('Do `!help {command}` to get help on a command')
             .addField(`Ping`, `Gets the bot's ping`, false)
+            .setFooter(`Astronaut | Made by ${config.ownerTag}`)
             message.channel.send(helpEmbed);
         }
 
@@ -25,6 +28,7 @@ module.exports = {
             .setDescription('Ping')
             .addField(`Usage`, '`!ping`', false)
             .addField(`Description`, `Get the bot's ping`, false)
+            .setFooter(`Astronaut | Made by ${config.ownerTag}`)
             message.channel.send(helpPingEmbed);
         }
 	},
