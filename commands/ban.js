@@ -3,8 +3,10 @@ const client = new Discord.Client();
 module.exports = {
 	name: 'ban',
 	description: 'Ban a member',
-	execute(message, args, logschannel, member) {
+	execute(message, args, member) {
         
+        const logschannel = message.guild.channels.cache.find(ch => ch.name === 'logs');
+
         if(message.member.hasPermission('BAN_MEMBERS'))
         {
             if(!logschannel) return;

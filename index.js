@@ -33,33 +33,22 @@ fs.readdir('./events/', (err, files) => {
 
 //Command Handler
 client.on('message', (message, guild, member) => {
-	//const serverid = message.guild.id;
-	//const prefix = config.serverid;
-	
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
 	const logschannel = message.guild.channels.cache.find(ch => ch.name === 'logs');
 
-	if (command === 'ping') {
-		client.commands.get('ping').execute(message, args);
-	}
-	else if(command === 'help')
+	if(client.commands.has(command))
 	{
-		client.commands.get('help').execute(message, args);
+		client.commands.get(command).execute(message, args, member);
 	}
-	else if(command === 'kick')
+	else
 	{
-		client.commands.get('kick').execute(message, args, logschannel, member);
-	}
-
-	else if(command === 'ban')
-	{
-		client.commands.get('ban').execute(message, args, logschannel, member);
+		message.reply("That command doesn't exist! Type `!help` to get all the commands")
 	}
 })
-
+	
 //welcome message
 client.on('guildMemberAdd', (member, guild) => {
 	const welcomechannel = member.guild.channels.cache.find(ch => ch.name === 'main-chat');

@@ -3,8 +3,10 @@ const client = new Discord.Client();
 module.exports = {
 	name: 'kick',
 	description: 'Kick a member',
-	execute(message, args, logschannel, member) {
+	execute(message, args, member) {
         
+        const logschannel = message.guild.channels.cache.find(ch => ch.name === 'logs');
+
         if(message.member.hasPermission('KICK_MEMBERS'))
         {
             if(!logschannel) return message.reply('There is no logschannel setup!');
