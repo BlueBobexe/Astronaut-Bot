@@ -37,7 +37,6 @@ client.on('message', (message, guild, member) => {
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
-	const logschannel = message.guild.channels.cache.find(ch => ch.name === 'logs');
 
 	if(client.commands.has(command))
 	{
