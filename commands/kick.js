@@ -33,7 +33,7 @@ module.exports = {
         }
 
         else{
-            message.channel.reply('You do not have permission to use this command.');
+            message.reply('You do not have permission to use this command.');
         }
 	},
 };

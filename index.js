@@ -2,11 +2,11 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const mongoose = require('mongoose');
 const config = require('./config.json');
-const prefix = config.defaultprefix;
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 client.mongoose = require('./utils/mongoose');
+const Guild = require('./models/guild');
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -32,7 +32,14 @@ fs.readdir('./events/', (err, files) => {
 });
 
 //Command Handler
-client.on('message', (message, guild, member) => {
+client.on('message', async (message, guild, member) => {
+
+	const settings = await Guild.findOne({
+		guildID: message.guild.id
+	});
+
+	const prefix = settings.prefix;
+
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -44,7 +51,7 @@ client.on('message', (message, guild, member) => {
 	}
 	else
 	{
-		message.reply("That command doesn't exist! Type `!help` to get all the commands")
+		message.reply("That command doesn't exist! Type `" + prefix + "help` to get all the commands")
 	}
 })
 	
