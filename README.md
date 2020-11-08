@@ -12,6 +12,12 @@ The current features are:
 • Moderation Commands (Currently only Kick & Ban)
 
 
-If you find a bug, please create an Issues thread:
+FAQ:
 
-https://github.com/BlueBobexe/Astronaut-Bot/issues
+• How do I report bugs?
+
+Make an Issues thread:https://github.com/BlueBobexe/Astronaut-Bot/issues
+
+• How can I see what you are working on?
+
+Check the Trello board: https://trello.com/b/XvGXEybe/astronaut-bot
