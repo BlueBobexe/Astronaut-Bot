@@ -1,5 +1,5 @@
 # Astronaut-Bot
-The GitHub page for the open source Astronaut Discord Bot!
+The GitHub page for the open-source Astronaut Discord Bot!
 
 
 Astronaut is (another) multipurpose bot!
