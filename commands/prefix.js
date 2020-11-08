@@ -24,7 +24,7 @@ module.exports = {
                     _id: mongoose.Types.ObjectId(),
                     guildID: guild.id,
                     guildName: guild.name,
-                    prefix: config.defaultprefix,
+                    prefix: config.defaultPrefix,
                 })
 
                 newGuild.save()
