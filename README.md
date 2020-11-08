@@ -16,7 +16,7 @@ FAQ:
 
 • How do I report bugs?
 
-Make an Issues thread:https://github.com/BlueBobexe/Astronaut-Bot/issues
+Make an Issues thread: https://github.com/BlueBobexe/Astronaut-Bot/issues
 
 • How can I see what you are working on?
 
